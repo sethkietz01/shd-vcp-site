@@ -22,10 +22,10 @@ function App() {
         </div>
       </div>
 
-      <h1>Sample</h1>
-      
-
-      <img src={sampleImage} width="1080px" alt="sample image" />
+      <div className="image-container">
+        <h1>Sample</h1>
+        <img src={sampleImage} width="1080px" alt="sample image" />
+      </div>
 
       <div className="footer">
         <a href="https://www.linkedin.com/company/shd-virtual-construction">Follow us on LinkedIn!</a>
