@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import logo from './assets/shd_virtual_construction_logo.jpg';
 import sampleImage from './assets/sample-image.jpg';
+import linkedinLogo from './assets/LinkedIn.svg';
 import './App.css'
 
 function App() {
@@ -10,8 +11,11 @@ function App() {
   return (
     <>
       <div className="header">
-        <div className="title">
-          <h1>SHD Virtual Construction Partners</h1>
+        <div className="logo-and-title">
+          <a href="./">
+            <img src={logo} width='120px' />
+            <p>SHD Virtual Construction Partners</p>
+          </a>
         </div>
 
         <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -61,9 +65,23 @@ function App() {
       </div>
 
       <div className="footer">
-        <img src={logo} />
-        <a href="https://www.linkedin.com/company/shd-virtual-construction">Follow us on LinkedIn!</a>
+        <div className="socials">
+          <p>Follow us on Social Media!</p>
+          <a href="https://www.linkedin.com/company/shd-virtual-construction">
+            <img src={linkedinLogo} width="50px" />
+          </a>
+        </div>
 
+        <div className="copyright">
+          <p>© 2026 SHD Virtual Construction Partners LLC</p>
+        </div>
+
+        <div className="contact">
+          <p>Address</p>
+          <p>Lexington, KY</p>
+          <p>Phone Number</p>
+          <p>Email</p>
+        </div>
       </div>
     </>
   )
