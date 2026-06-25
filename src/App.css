@@ -59,6 +59,8 @@ nav {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
               0 2px 4px -1px rgba(0, 0, 0, 0.06);
   width: 75vw;
+  background-image: linear-gradient(120deg, #f9f9f9, #d1d1d1);
+
 }
 
 .image-container {
@@ -71,9 +73,20 @@ nav {
   color: white;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 20px;
   box-sizing: border-box;
+  border-top: 2px solid black;
 }
+
+.socials, .copyright, .contact {
+  flex: 1;
+  display: flex;
+}
+
+.socials { justify-content: flex-start; }
+.copyright { justify-content: center; } 
+.contact { justify-content: flex-end; } 
 
   .footer a {
     color: lightskyblue;
@@ -112,6 +125,7 @@ nav {
 .contact {
   display: flex;
   flex-direction: column;
+  align-items: end;
 }
 
   .contact p {
