@@ -1,20 +1,50 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import logo from './assets/shd_virtual_construction_logo.jpg';
 import sampleImage from './assets/sample-image.jpg';
+import sampleImage2 from './assets/sample-image-2.jpg';
+import sampleImage3 from './assets/sample-image-3.jpg';
 import linkedinLogo from './assets/LinkedIn.svg';
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
+  const trackRef = useRef(null);
+
+  const handleScroll = (direction) => {
+    if (trackRef.current) {
+      const track = trackRef.current;
+      const slideWidth = track.clientWidth; 
+
+      if (direction === 'next') {
+        if (track.scrollLeft + slideWidth >= track.scrollWidth - 5) {
+          track.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+          track.scrollBy({ left: slideWidth, behavior: 'smooth' });
+        }
+      } else if (direction === 'prev') {
+        if (track.scrollLeft <= 5) {
+          track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+        } else {
+          track.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+        }
+      }
+    }
+  };
 
   return (
     <>
       <div className="header">
-        <div className="logo-and-title">
+        <div className="logo">
           <a href="./">
             <img src={logo} width='120px' />
-            <p>SHD Virtual Construction Partners</p>
+          </a>
+        </div>
+        
+        <div className="title">
+          <a href="./">
+            SHD Virtual Construction Partners
           </a>
         </div>
 
@@ -59,10 +89,39 @@ function App() {
           By prioritizing speed, accuracy, and constructability, SHD Virtual Construction helps teams plan, coordinate, and build with confidence</p>
       </div>
 
-      <div className="image-container">
-        <h1>Sample</h1>
-        <img src={sampleImage} width="1080px" alt="sample image" />
+      <h1 className="carousel-header">Sample</h1>
+
+      <div className="carousel-container">
+        <div className="carousel-track" ref={trackRef}>
+          
+          <div className="slide">
+            <img src={sampleImage} alt="Slide 1" />
+            <div className="carousel-controls">
+              <button onClick={() => handleScroll('prev')} className="prev-btn">❮</button>
+              <button onClick={() => handleScroll('next')} className="next-btn">❯</button>
+            </div>
+          </div>
+
+          <div className="slide">
+            <img src={sampleImage2} alt="Slide 2" />
+            <div className="carousel-controls">
+              <button onClick={() => handleScroll('prev')} className="prev-btn">❮</button>
+              <button onClick={() => handleScroll('next')} className="next-btn">❯</button>
+            </div>
+          </div>
+
+          <div className="slide">
+            <img src={sampleImage3} alt="Slide 3" />
+            <div className="carousel-controls">
+              <button onClick={() => handleScroll('prev')} className="prev-btn">❮</button>
+              <button onClick={() => handleScroll('next')} className="next-btn">❯</button>
+            </div>
+          </div>
+
+        </div>
       </div>
+
+      <div className="spacer"></div>
 
       <div className="footer">
         <div className="socials">
