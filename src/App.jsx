@@ -1,11 +1,13 @@
 import { useState, useRef } from 'react'
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import logo from './assets/shd_virtual_construction_logo.jpg';
 import sampleImage from './assets/sample-image.jpg';
 import sampleImage2 from './assets/sample-image-2.jpg';
 import sampleImage3 from './assets/sample-image-3.jpg';
 import linkedinLogo from './assets/LinkedIn.svg';
 import './App.css'
+import contactUs from './pages/ContactUs.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -77,7 +79,7 @@ const resultPoints = [
 
         <div className={`navbar ${isMenuOpen ? 'show' : ''}`}>
           <nav className="navbar">
-            <a href="" className="contact-link">Contact Us</a> 
+            <Link to="/contact" className="contact-link">Contact Us</Link>
             {/*
             <p className="divider">|</p>
             <p>Placeholder</p>
