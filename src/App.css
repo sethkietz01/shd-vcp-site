@@ -87,31 +87,7 @@ nav {
 /* ==========================================================================
    3. Main Content / Overview
    ========================================================================== */
-.overview {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 
-  display: none !important;
-}
-
-   .overview h1 {
-    text-decoration: underline;
-    margin-bottom: 0px;
-    margin-left: 12px;
-  }
-
-.overview-text {
-  font-size: 18px;
-  margin-top: 4px;
-  margin-left: 12px;
-  padding: 20px;
-  border-radius: 8px;
-  width: 75vw;
-  background-image: linear-gradient(120deg, #f9f9f9, #f9f9f9, #d1d1d1);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
-              0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
 
 .image-container {
   margin-bottom: 150px;
