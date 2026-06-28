@@ -5,10 +5,12 @@ import './index.css';
 import App from './App.jsx';
 import ContactUs from './pages/ContactUs.jsx';;
 import Layout from './layouts/Layout.jsx';
+import ScrollToTop from './components/ScrollToTop';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter basename="/shd-vcp-site">
+    <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<App />} />
