@@ -523,6 +523,7 @@ h3 {
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease;
+  text-decoration: none;
 }
 
 .cta-button:hover {

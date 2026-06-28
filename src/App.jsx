@@ -42,7 +42,7 @@ const deliverables = [
 ];
 
 const whyPoints = [
-  "Field-First Mindset: Built from real prefab and VDC leadership experience.",
+  "Field-First Mindset: Built with 20+ years of combined real prefab and VDC leadership experience.",
   "Production-Focused: We prioritize labor savings and install efficiency.",
   "Prefab-Driven: We maximize offsite construction opportunities.",
   "Execution-Oriented: Deliverables designed for the people doing the work."
@@ -220,7 +220,9 @@ const resultPoints = [
           <div className="cta-banner">
             <h2>Let's Build Smarter</h2>
             <p>If your goal is to reduce field labor, increase prefab, and execute with precision, we're built to support you.</p>
-            <button className="cta-button">Get Started</button>
+            <Link to="/contact" className="cta-button">
+              Get Started
+            </Link>
           </div>
         </section>
       </div>
