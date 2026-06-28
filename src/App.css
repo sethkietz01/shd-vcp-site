@@ -212,11 +212,10 @@ nav {
 
 
 .hero-section {
-  padding: 80px 20px;
+  padding: 0 20px;
   min-height: 60vh;
   display: flex;
   align-items: center;
-  padding-top: 0;
 }
 
 .hero-content {
@@ -405,6 +404,76 @@ h3 {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
 }
 
+.who-we-are {
+  margin: 24px auto;
+  
+}
+
+.who-we-are h1 {
+  display: block;
+  text-align: center;
+}
+
+
+.who-we-are .section-header::after {
+  content: '';
+  position: absolute;
+  width: 100%; 
+  left: 0%; 
+  bottom: -10px;
+  height: 4px;
+  background-color: #264D73;
+}
+
+.shd-philosophy {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.philosophy-intro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.philosophy-intro h3 {
+  font-size: 2rem;
+  color: #264D73;
+  margin-bottom: 1rem;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.pillar {
+  padding: 30px;
+  background: white;
+  border-top: 4px solid #264D73;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.pillar h4 {
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+  color: #0f172a;
+}
+
+.pillar p {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .note {
   font-weight: 600;
   color: #264D73;
@@ -492,7 +561,6 @@ h3 {
   position: relative;
 }
 
-/* Custom list marker for a professional look */
 .summary-col li::before {
   content: "→";
   position: absolute;
@@ -501,7 +569,6 @@ h3 {
   font-weight: bold;
 }
 
-/* Special styling for "The Result" to make it pop */
 .the-result {
   background: #f1f5f9;
   padding: 2rem;
@@ -509,8 +576,8 @@ h3 {
 }
 
 .the-result li::before {
-  content: "✓"; /* Checkmark for results */
-  color: #16a34a; /* Green for success */
+  content: "✓"; 
+  color: #16a34a; 
 }
 
 .card-indicator {
@@ -519,12 +586,14 @@ h3 {
   left: 0;
   width: 4px;
   height: 100%;
-  background: #264D73; /* Your Brand Blue */
+  background: #264D73; 
 }
 
 .contact-link {
   margin-right: 32px;
 }
+
+
 
 /* ==========================================================================
    4. Instagram Carousel Component
@@ -683,6 +752,51 @@ h3 {
 
 .contact p {
   margin: 0px;
+}
+
+.contact-heading {
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 40px auto;
+  gap: 15px;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.contact-form input, 
+.contact-form textarea {
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.contact-form textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.contact-form button {
+  background: #264D73;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.contact-form button:hover {
+  background: #1e3a8a;
 }
 
 /* ==========================================================================

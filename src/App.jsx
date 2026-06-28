@@ -60,8 +60,6 @@ const resultPoints = [
   return (
     <>
       <div className="hook-statement">
-     
-
         <section className="hero-section">
           <div className="hero-content">
             <motion.h1 
@@ -145,6 +143,34 @@ const resultPoints = [
           </div>
         </section>
 
+        <section className="who-we-are">
+          <div className="who-we-are-container">
+            <h1 className="section-header">Who We Are</h1>
+            
+            <div className="shd-philosophy">
+              <div className="philosophy-intro">
+                <h3>We don’t deliver. We deploy.</h3>
+                <p>Most virtual construction stops at delivery. That’s where the problems start. At SHD, we design with the field in mind—ensuring every model is an executable install plan.</p>
+              </div>
+
+              <div className="pillars-grid">
+                <div className="pillar">
+                  <h4>Sequenced</h4>
+                  <p>We plan the installation flow, not just the geometry. Every model reflects real field access and install order.</p>
+                </div>
+                <div className="pillar">
+                  <h4>Hand-Off</h4>
+                  <p>We translate models into prefab-ready, field-usable packages. Spools, racks, and layouts built for crews.</p>
+                </div>
+                <div className="pillar">
+                  <h4>Deployment</h4>
+                  <p>What we produce installs cleanly the first time. Less guesswork. Less rework. More production.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="problems-we-solve-container">
           <h2 className="section-header">The Problems We Solve</h2>
           <div className="problem-grid">
@@ -171,6 +197,8 @@ const resultPoints = [
             ))}
           </section>
         </div>
+
+        
 
         <section className="summary-container">
           <div className="summary-col why-shd">
