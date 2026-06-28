@@ -31,12 +31,17 @@ body {
   z-index: 999;
 }
 
-.header h1 {
-  margin-left: 8px;
-}
+  .header h1 {
+    margin-left: 8px;
+  }
 
-.header p {
-  font-size: 20px;
+  .header p {
+    font-size: 20px;
+  }
+
+.header-top {
+  display: flex;
+  align-items: center;
 }
 
 .logo a {
