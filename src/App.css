@@ -839,8 +839,13 @@ h3 {
    ========================================================================== */
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block;
-    margin: 0 auto 10px auto;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
   }
 
   .navbar {

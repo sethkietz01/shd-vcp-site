@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.jpg';
+import { GiHamburgerMenu } from "react-icons/gi"; 
+import { IoClose } from "react-icons/io5"; 
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +23,7 @@ const Header = () => {
       </div>
 
       <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-        Menu
+        {isMenuOpen ? <IoClose size={24} /> : <GiHamburgerMenu size={24} />}
       </button>
 
       <div className={`navbar ${isMenuOpen ? 'show' : ''}`}>
