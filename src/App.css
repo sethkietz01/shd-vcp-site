@@ -20,7 +20,7 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #264D73;
+  background-color: #184F80;
   color: #fff;
   background-image: url('./assets/header-background.jpg');
   background-size: cover; 
@@ -169,11 +169,11 @@ nav {
 
 .pain {
   background: #e4e4e4;
-  color: #666;
+  color: #706d6a;
 }
 
 .gain {
-  background: #264D73; 
+  background: #184F80; 
   color: #fff;
   box-shadow: 0 10px 20px rgba(38, 77, 115, 0.2);
 }
@@ -210,7 +210,7 @@ nav {
   bottom: -10px;
   width: 50%;
   height: 4px;
-  background-color: #264D73;
+  background-color: #184F80;
 }
 
 .hero-section {
@@ -233,7 +233,7 @@ h1 {
 }
 
 .text-highlight {
-  color: #264D73; 
+  color: #184F80; 
 }
 
 .hero-grid {
@@ -249,7 +249,7 @@ h1 {
 }
 
 .shd-advantage {
-  border-left-color: #264D73;
+  border-left-color: #184F80;
   background: white;
 }
 
@@ -287,7 +287,7 @@ h3 {
 }
 
 .view-case-study {
-  background-color: #264D73;
+  background-color: #184F80;
   color: white;
   border-radius: 0px;
   padding: 12px;
@@ -318,7 +318,7 @@ h3 {
 }
 
 .approach {
-  background: #264D73;
+  background: #184F80;
   color: white;
 }
 
@@ -443,7 +443,7 @@ h3 {
   left: 0%; 
   bottom: -10px;
   height: 4px;
-  background-color: #264D73;
+  background-color: #184F80;
 }
 
 .shd-philosophy {
@@ -459,7 +459,7 @@ h3 {
 
 .philosophy-intro h3 {
   font-size: 2rem;
-  color: #264D73;
+  color: #184F80;
   margin-bottom: 1rem;
 }
 
@@ -472,7 +472,7 @@ h3 {
 .pillar {
   padding: 30px;
   background: white;
-  border-top: 4px solid #264D73;
+  border-top: 4px solid #184F80;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
@@ -497,7 +497,7 @@ h3 {
 
 .note {
   font-weight: 600;
-  color: #264D73;
+  color: #184F80;
   margin-top: 1.5rem;
   font-size: 0.9rem;
 }
@@ -565,7 +565,7 @@ h3 {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   color: #0f172a;
-  border-bottom: 2px solid #264D73;
+  border-bottom: 2px solid #184F80;
   display: inline-block;
   padding-bottom: 5px;
 }
@@ -587,7 +587,7 @@ h3 {
   content: "→";
   position: absolute;
   left: 0;
-  color: #264D73;
+  color: #184F80;
   font-weight: bold;
 }
 
@@ -608,7 +608,7 @@ h3 {
   left: 0;
   width: 4px;
   height: 100%;
-  background: #264D73; 
+  background: #184F80; 
 }
 
 .contact-link {
@@ -730,7 +730,7 @@ h3 {
    ========================================================================== */
 .footer {
   margin-top: auto;
-  background-color: #666666;
+  background-color: #706d6a;
   color: white;
   display: flex;
   align-items: center;
@@ -808,7 +808,7 @@ h3 {
 }
 
 .contact-form button {
-  background: #264D73;
+  background: #184F80;
   color: white;
   padding: 12px;
   border: none;
@@ -846,7 +846,7 @@ h3 {
     display: none;
     position: relative; 
     width: 100%;
-    background: #264D73;
+    background: #184F80;
     display: none; 
     flex-direction: column;
     text-align: center;
