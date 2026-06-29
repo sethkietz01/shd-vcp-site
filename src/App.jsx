@@ -1,236 +1,232 @@
-import { useState, useRef } from 'react'
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import logo from './assets/logo.jpg';
+
 import sampleImage from './assets/sample-image.jpg';
 import sampleImage2 from './assets/sample-image-2.jpg';
 import sampleImage3 from './assets/sample-image-3.jpg';
-import linkedinLogo from './assets/LinkedIn.svg';
-import './App.css'
-import contactUs from './pages/ContactUs.jsx';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const portfolioImages = [sampleImage, sampleImage2, sampleImage3];
-  const [currentIndex, setCurrentIndex] = useState(0);
-  
-  const trackRef = useRef(null);
-
-  const handleScroll = (direction) => {
-  if (direction === 'next') {
-    setCurrentIndex((prev) => (prev + 1) % portfolioImages.length);
-  } else {
-    setCurrentIndex((prev) => (prev - 1 + portfolioImages.length) % portfolioImages.length);
-  }
-};
-
-  const problems = [
-  { title: "Communication", desc: "Crews waiting on incomplete or unclear information." },
-  { title: "Material Flow", desc: "Material waste and field re-handling." },
-  { title: "Detailing", desc: "Limited prefabrication due to lack of detail." },
-  { title: "Sequencing", desc: "Rework caused by coordination gaps." },
-  { title: "Execution", desc: "Disconnect between BIM and field execution." }
+const PORTFOLIO_IMAGES = [
+  { src: sampleImage, alt: "BIM Electrical Prefabrication Blueprint Layout" },
+  { src: sampleImage2, alt: "Virtual Construction Spool Drawings Example" },
+  { src: sampleImage3, alt: "Field Ready Work Package Deployment Visual" }
 ];
 
-const deliverables = [
-  { title: "Field-Ready BOMs", details: ["Install package-specific lists", "Spool-level quantity breakdowns", "Zone-based organization", "Supports kitting, staging, and tracking"], note: "Material shows up ready to install, not sorted in the field" },
-  { title: "Prefabrication Packages", details: ["Conduit reach & trapeze drawings", "Assembly sheets with dimensions", "Kit-of-parts definitions", "Labor-aligned detailing"], note: "We define how it's built, not just how it looks" },
-  { title: "Spooling & Installation Drawings", details: ["Area and system-based spooling", "Clear, field-friendly layouts", "Install sequencing support", "Minimized field measuring"], note: "Crews install with confidence, not interpretation" },
-  { title: "AWP-Aligned Work Packaging", details: ["Supports Workface Planning (WFP)", "Installation Work Packages (IWPs)", "Constraint-free, executable scopes"], note: "Every model output feeds a planned work package" }
+const PROBLEMS = [
+  { id: "comm", title: "Communication", desc: "Crews waiting on incomplete or unclear information." },
+  { id: "mat", title: "Material Flow", desc: "Material waste and field re-handling." },
+  { id: "det", title: "Detailing", desc: "Limited prefabrication due to lack of detail." },
+  { id: "seq", title: "Sequencing", desc: "Rework caused by coordination gaps." },
+  { id: "exec", title: "Execution", desc: "Disconnect between BIM and field execution." }
 ];
 
-const whyPoints = [
+const DELIVERABLES = [
+  { id: "bom", title: "Field-Ready BOMs", details: ["Install package-specific lists", "Spool-level quantity breakdowns", "Zone-based organization", "Supports kitting, staging, and tracking"], note: "Material shows up ready to install, not sorted in the field" },
+  { id: "prefab", title: "Prefabrication Packages", details: ["Conduit reach & trapeze drawings", "Assembly sheets with dimensions", "Kit-of-parts definitions", "Labor-aligned detailing"], note: "We define how it's built, not just how it looks" },
+  { id: "spool", title: "Spooling & Installation Drawings", details: ["Area and system-based spooling", "Clear, field-friendly layouts", "Install sequencing support", "Minimized field measuring"], note: "Crews install with confidence, not interpretation" },
+  { id: "awp", title: "AWP-Aligned Work Packaging", details: ["Supports Workface Planning (WFP)", "Installation Work Packages (IWPs)", "Constraint-free, executable scopes"], note: "Every model output feeds a planned work package" }
+];
+
+const WHY_POINTS = [
   "Field-First Mindset: Built with 20+ years of combined real prefab and VDC leadership experience.",
   "Production-Focused: We prioritize labor savings and install efficiency.",
   "Prefab-Driven: We maximize offsite construction opportunities.",
   "Execution-Oriented: Deliverables designed for the people doing the work."
 ];
 
-const resultPoints = [
+const RESULT_POINTS = [
   "Reduced labor hours",
   "Increased prefab utilization",
   "Improved schedule reliability",
   "Less field rework",
   "Better material control"
 ];
+
+function App() {
+  const [currentIndex, setCurrentIndex] = useState(0);
   
+  const handleScroll = (direction) => {
+    if (direction === 'next') {
+      setCurrentIndex((prev) => (prev + 1) % PORTFOLIO_IMAGES.length);
+    } else {
+      setCurrentIndex((prev) => (prev - 1 + PORTFOLIO_IMAGES.length) % PORTFOLIO_IMAGES.length);
+    }
+  };
 
   return (
-    <>
-      <div className="hook-statement">
-        <section className="hero-section">
-          <div className="hero-content">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              Built for Contractors.<br /> 
-              <span className="text-highlight">Driven by the Field.</span>
-            </motion.h1>
+    <div className="hook-statement">
+      <section className="hero-section">
+        <div className="hero-content">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Built for Contractors.<br /> 
+            <span className="text-highlight">Driven by the Field.</span>
+          </motion.h1>
 
-            <div className="hero-grid">
-              <div className="status-quo">
-                <h3>The Status Quo</h3>
-                <p>Most BIM firms stop at coordination. We see it as only the beginning.</p>
-              </div>
-              
-              <div className="shd-advantage">
-                <h3>The SHD Advantage</h3>
-                <p>We bridge the gap from modeling to field-ready installation, delivering packages that reduce labor and maximize prefabrication.</p>
-              </div>
+          <div className="hero-grid">
+            <div className="status-quo">
+              <h3>The Status Quo</h3>
+              <p>Most BIM firms stop at coordination. We see it as only the beginning.</p>
             </div>
-
-            <div className="hero-cta">
-              <Link to="/contact" className="primary-cta-button">
-                Talk to our Experts
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <section className="portfolio-showcase" style={{ position: 'relative', overflow: 'hidden' }}>
-          {portfolioImages.map((img, index) => (
-            <motion.img 
-              key={index}
-              src={img}
-              animate={{ opacity: currentIndex === index ? 1 : 0 }}
-              style={{
-                position: 'absolute',
-                top: 0, left: 0, width: '100%', height: '100%',
-                objectFit: 'cover',
-                zIndex: 0
-              }}
-            />
-          ))}
-
-          <div className="gradient-overlay"></div>
-
-          <div className="portfolio-content" style={{ position: 'relative', zIndex: 2 }}>
-            <div className="text-overlay">
-              <h2>Project Name</h2>
-              <button className="view-case-study">View Case Study</button>
-            </div>
-          </div>
-
-          <div className="portfolio-controls" style={{ zIndex: 3 }}>
-            <button onClick={() => handleScroll('prev')}>❮</button>
-            <button onClick={() => handleScroll('next')}>❯</button>
-          </div>
-        </section>
-
-        <section className="problem-solution-section">
-          <div className="flow-container">
-            <div className="side-column problem">
-              <h3>The Friction</h3>
-              <p>Coordination gaps lead to field rework, material waste, and crews waiting for clarity.</p>
-            </div>
-
-            <div className="visual-connector">
-              <span className="arrow">→</span>
-            </div>
-
-            <div className="side-column approach">
-              <h3>The SHD Flow</h3>
-              <div className="steps">
-                <span>Model</span>
-                →
-                <span>Spool</span>
-                →
-                <span>Prefab</span>
-                →
-                <span>Install</span>
-              </div>
-              <p>We convert models into production-ready packages, not just visualization.</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="who-we-are">
-          <div className="who-we-are-container">
-            <h1 className="section-header">Who We Are</h1>
             
-            <div className="shd-philosophy">
-              <div className="philosophy-intro">
-                <h3>We don’t deliver. We deploy.</h3>
-                <p>Most virtual construction stops at delivery. That’s where the problems start. At SHD, we design with the field in mind—ensuring every model is an executable install plan.</p>
-              </div>
-
-              <div className="pillars-grid">
-                <div className="pillar">
-                  <h4>Sequenced</h4>
-                  <p>We plan the installation flow, not just the geometry. Every model reflects real field access and install order.</p>
-                </div>
-                <div className="pillar">
-                  <h4>Hand-Off</h4>
-                  <p>We translate models into prefab-ready, field-usable packages. Spools, racks, and layouts built for crews.</p>
-                </div>
-                <div className="pillar">
-                  <h4>Deployment</h4>
-                  <p>What we produce installs cleanly the first time. Less guesswork. Less rework. More production.</p>
-                </div>
-              </div>
+            <div className="shd-advantage">
+              <h3>The SHD Advantage</h3>
+              <p>We bridge the gap from modeling to field-ready installation, delivering packages that reduce labor and maximize prefabrication.</p>
             </div>
           </div>
-        </section>
 
-        <section className="problems-we-solve-container">
-          <h2 className="section-header">The Problems We Solve</h2>
-          <div className="problem-grid">
-            {problems.map((item, index) => (
-              <div key={index} className="problem-card">
-                <div className="card-indicator" /> 
-                <h4>{item.title}</h4>
-                <p>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <div className="deliverables-container">
-          <h2 className="section-header">Deliverables</h2>
-          <section className="deliverables-grid">
-            {deliverables.map((d, i) => (
-              <motion.div key={i} className="deliverable-card" whileHover={{ y: -5 }}>
-                <div className="card-indicator" /> 
-                  <h3>{d.title}</h3>
-                  <ul>{d.details.map(item => <li key={item}>{item}</li>)}</ul>
-                  <p className="note">{d.note}</p>
-              </motion.div>
-            ))}
-          </section>
-        </div>
- 
-        <section className="summary-container">
-          <div className="summary-col why-shd">
-            <h3>Why SHD</h3>
-            <ul>
-              {whyPoints.map((point, i) => <li key={i}>{point}</li>)}
-            </ul>
-          </div>
-          
-          <div className="summary-col the-result">
-            <h3>The Result</h3>
-            <ul className="results-list">
-              {resultPoints.map((point, i) => <li key={i}>{point}</li>)}
-            </ul>
-          </div>
-        </section>
-
-        <section className="closing-container">
-          <div className="cta-banner">
-            <h2>Let's Build Smarter</h2>
-            <p>If your goal is to reduce field labor, increase prefab, and execute with precision, we're built to support you.</p>
-            <Link to="/contact" className="cta-button">
-              Get Started
+          <div className="hero-cta">
+            <Link to="/contact" className="primary-cta-button">
+              Talk to our Experts
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="portfolio-showcase" style={{ position: 'relative', overflow: 'hidden' }}>
+        <AnimatePresence mode="wait">
+          <motion.img 
+            key={currentIndex}
+            src={PORTFOLIO_IMAGES[currentIndex].src}
+            alt={PORTFOLIO_IMAGES[currentIndex].alt}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4 }}
+            style={{
+              position: 'absolute',
+              top: 0, left: 0, width: '100%', height: '100%',
+              objectFit: 'cover',
+              zIndex: 0
+            }}
+          />
+        </AnimatePresence>
+
+        <div className="gradient-overlay" />
+
+        <div className="portfolio-content" style={{ position: 'relative', zIndex: 2 }}>
+          <div className="text-overlay">
+            <h2>Project Name</h2>
+            <button className="view-case-study">View Case Study</button>
+          </div>
+        </div>
+
+        <div className="portfolio-controls" style={{ zIndex: 3 }}>
+          <button onClick={() => handleScroll('prev')} aria-label="Previous Project">❮</button>
+          <button onClick={() => handleScroll('next')} aria-label="Next Project">❯</button>
+        </div>
+      </section>
+
+      <section className="problem-solution-section">
+        <div className="flow-container">
+          <div className="side-column problem">
+            <h3>The Friction</h3>
+            <p>Coordination gaps lead to field rework, material waste, and crews waiting for clarity.</p>
+          </div>
+
+          <div className="visual-connector">
+            <span className="arrow" aria-hidden="true">→</span>
+          </div>
+
+          <div className="side-column approach">
+            <h3>The SHD Flow</h3>
+            <div className="steps">
+              <span>Model</span> → <span>Spool</span> → <span>Prefab</span> → <span>Install</span>
+            </div>
+            <p>We convert models into production-ready packages, not just visualization.</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="who-we-are">
+        <div className="who-we-are-container">
+          <h1 className="section-header">Who We Are</h1>
+          
+          <div className="shd-philosophy">
+            <div className="philosophy-intro">
+              <h3>We don’t deliver. We deploy.</h3>
+              <p>Most virtual construction stops at delivery. That’s where the problems start. At SHD, we design with the field in mind—ensuring every model is an executable install plan.</p>
+            </div>
+
+            <div className="pillars-grid">
+              <div className="pillar">
+                <h4>Sequenced</h4>
+                <p>We plan the installation flow, not just the geometry. Every model reflects real field access and install order.</p>
+              </div>
+              <div className="pillar">
+                <h4>Hand-Off</h4>
+                <p>We translate models into prefab-ready, field-usable packages. Spools, racks, and layouts built for crews.</p>
+              </div>
+              <div className="pillar">
+                <h4>Deployment</h4>
+                <p>What we produce installs cleanly the first time. Less guesswork. Less rework. More production.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="problems-we-solve-container">
+        <h2 className="section-header">The Problems We Solve</h2>
+        <div className="problem-grid">
+          {PROBLEMS.map((item) => (
+            <div key={item.id} className="problem-card">
+              <div className="card-indicator" /> 
+              <h4>{item.title}</h4>
+              <p>{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="deliverables-container">
+        <h2 className="section-header">Deliverables</h2>
+        <section className="deliverables-grid">
+          {DELIVERABLES.map((d) => (
+            <motion.div key={d.id} className="deliverable-card" whileHover={{ y: -5 }}>
+              <div className="card-indicator" /> 
+              <h3>{d.title}</h3>
+              {/* Using text items combined with indices safely for static sublists */}
+              <ul>
+                {d.details.map((detail, index) => <li key={`${d.id}-det-${index}`}>{detail}</li>)}
+              </ul>
+              <p className="note">{d.note}</p>
+            </motion.div>
+          ))}
         </section>
       </div>
-    </>
-  )
+
+      <section className="summary-container">
+        <div className="summary-col why-shd">
+          <h3>Why SHD</h3>
+          <ul>
+            {WHY_POINTS.map((point, i) => <li key={`why-${i}`}>{point}</li>)}
+          </ul>
+        </div>
+        
+        <div className="summary-col the-result">
+          <h3>The Result</h3>
+          <ul className="results-list">
+            {RESULT_POINTS.map((point, i) => <li key={`res-${i}`}>{point}</li>)}
+          </ul>
+        </div>
+      </section>
+
+      <section className="closing-container">
+        <div className="cta-banner">
+          <h2>Let's Build Smarter</h2>
+          <p>If your goal is to reduce field labor, increase prefab, and execute with precision, we're built to support you.</p>
+          <Link to="/contact" className="cta-button">
+            Get Started
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
 }
 
-export default App
+export default App;
