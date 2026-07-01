@@ -349,7 +349,7 @@ h3 {
 .problem-card {
   background: #ffffff;
   padding: 2.5rem;
-  border-radius: 16px; 
+  border-radius: 12px; 
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.03); 
   grid-column: span 2;
@@ -412,7 +412,7 @@ h3 {
 .deliverable-card {
   background: #ffffff;
   padding: 2.5rem; 
-  border-radius: 16px; 
+  border-radius: 12px; 
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.03); 
   position: relative;
@@ -834,27 +834,36 @@ h3 {
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
   }
 
   .navbar {
-    display: none;
-    position: relative; 
+    position: absolute;
+    top: 100%; 
+    left: 0;
     width: 100%;
-    background: #184F80;
-    display: none; 
+    z-index: 1000;
+    
+    display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 10px 0;
+    background: #184F80;
+    
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, visibility 0.3s, transform 0.3s ease;
   }
 
   .navbar.show {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
   
   .header {
@@ -949,18 +958,18 @@ h3 {
   }
 
   .footer {
-    flex-direction: column; /* Stacks children vertically */
-    text-align: center;      /* Centers text */
-    gap: 15px;               /* Adds space between stacked items */
+    flex-direction: column; 
+    text-align: center; 
+    gap: 15px; 
   }
 
   .footer div {
-    margin-left: 0;          /* Reset the auto margin for centered layout */
+    margin-left: 0;
   }
 
   .socials, .copyright, .about {
-    justify-content: center; /* Centers items horizontally */
-    width: 100%;             /* Ensures full width alignment */
+    justify-content: center; 
+    width: 100%; 
     margin-left: auto;
     margin-right: auto;
   }
